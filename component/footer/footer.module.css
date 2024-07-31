@@ -1,0 +1,241 @@
+/*! CSS Used from: http://127.0.0.1:5500/Hotcourses-task/stylesheet.css */
+@media (max-width: 1023px) {
+    .footer-container .subscribe-content {
+      display: flex;
+      flex-direction: column;
+      padding: 30px 15px 30px 15px;
+      gap: 50px;
+    }
+    .footer-container .subscribe-content .subscribe-newsletter {
+      min-width: 309px;
+      padding: 14px 20px 24px 20px;
+    }
+    .footer-info-container .ftr-info li {
+      list-style: none;
+    }
+    .ftr-info ul {
+      display: flex;
+      flex-direction: column;
+    }
+    .footer-info-container .ftridp-txt {
+      order: 3;
+    }
+    .footer-info-container .ftridp-logo {
+      order: 2;
+    }
+    .ftr-info ul {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .lang {
+      padding: 15px;
+      background-color: #005585;
+    }
+    .lang .form-select {
+      background-color: #005585;
+    }
+    .btn-subscribe {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  @media (min-width: 1024px) {
+    .lang .form-select {
+      background-color: #069;
+    }
+    .btn-subscribe {
+      margin-left: auto;
+    }
+  }
+  .idp-policy {
+    width: 100%;
+    color: #ffffff;
+
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .idp-policy .checkbox-word {
+    text-decoration: underline;
+  }
+  .form-check-input[type="checkbox"] {
+    width: 35px;
+    height: 20px;
+    border: 2px solid #a2a2a2;
+    border-radius: 2px;
+    margin: 0;
+    margin-right: 11px;
+  }
+  .footer {
+    margin-top: 40px;
+    background-color: #069;
+
+  }
+  .footer-container {
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  .subscribe-content {
+    display: flex;
+    flex-direction: row;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    gap: 100px;
+  }
+  .subscribe-newsletter {
+    display: flex;
+    max-width: 620px;
+    flex-direction: column;
+    background-color: #005585;
+    padding: 30px;
+    box-sizing: border-box;
+  }
+  .subscribe-header {
+    color: #fff;
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0px;
+  }
+  .subscribe-para {
+    color: #fff;
+    /* font-family: "Inter"; */
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 4px;
+    margin-bottom: 20px;
+  }
+  .submail-textbox {
+    width: 100%;
+    height: 60px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    border: 0px;
+    border-radius: 4px;
+    padding-left: 16px;
+  }
+  .subscribe-inputbox {
+    display: flex;
+    margin-top: 20px;
+  }
+  .btn-subscribe {
+    width: 212px;
+    color: #fff;
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding: 15px 45px 15px 45px;
+    background-color: #aa5d00;
+    margin-top: 44px;
+    border: none;
+    box-shadow: 0px 3px 0px #683900;
+  }
+  .ftr-links ul {
+    padding-left: 0px;
+  }
+  .ftr-links li {
+    list-style: none;
+    color: #fff;
+
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 29px;
+  }
+  .ftr-useful {
+    color: #fff;
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-top: 0px;
+    margin-bottom: 20px;
+  }
+  .ftr-flwups {
+    color: #fff;
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  .ftr-flw {
+    margin-top: 38px;
+    margin-bottom: 28px;
+  }
+  .flwups-image {
+    display: flex;
+    gap: 18px;
+  }
+  .footer-div-border {
+    border: 1px solid #48a1bf;
+  }
+  .footer-info-container {
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  .ftr-info {
+    display: flex;
+    padding-top: 32px;
+    padding-bottom: 90px;
+  }
+  .ftr-info ul {
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .ftr-info li {
+    list-style: none;
+  }
+  .lang {
+    display: flex;
+  }
+  .lang .form-select {
+    display: inline-block;
+    width: 70px;
+    padding: 0px;
+    border: none;
+    color: #fff;
+
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("http://127.0.0.1:5500/Hotcourses-task/Assets/Polygon/%201.svg");
+    background-repeat: no-repeat;
+    background-position: calc(100% - 4px);
+    padding-left: 12px;
+  }
+  .ftridp-txt {
+    color: #fff;
+
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .ftridp-logo {
+    width: 130.001px;
+    height: 20.527px;
+  }
+  /*! CSS Used fontfaces */
+
+  @font-face {
+    font-family: "Open Sans";
+    src: url("http://127.0.0.1:5500/Hotcourses-task/fonts/Open_Sans/OpenSans-VariableFont_wdth/,wght.ttf")
+      format("truetype");
+  }

@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'NotoSans';
+  src: url('../fonts/NotoSans-Bold.woff') format('woff'),
+       url('../fonts/NotoSans-Bold.ttf') format('ttf');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+  
+}
+@font-face {
+  font-family: 'NotoSans';
+  src: url('../fonts/NotoSans-Regular.woff') format('woff'),
+       url('../fonts/NotoSans-Regular.ttf') format('ttf');
+
+       font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+
+}
+
+/* css reset */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+/* css reset */
+
+ 
+
+body{
+  box-sizing: border-box;
+  font-family: notosans, sans-serif;
+}
+
+p{
+  font-size: 16px;
+}
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+
+
+body {
+
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.regular-checkbox:checked + label, .regular-radio:checked + label {
+  background-color: #000 ;
+  border: 1px solid #000;
+  color: #fff;
+}
+.regular-checkbox.font_size_checkbox:checked + label, .regular-radio:checked + label{
+  font-size:18px;
+}
+
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D1D5DB;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+html {
+  --scroll-behavior: smooth !important;
+  scroll-behavior: smooth !important;
+}

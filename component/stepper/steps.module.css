@@ -1,0 +1,34 @@
+.stepper {
+    @apply flex items-center gap-[16px];
+  }
+  .stepper:not(:last-child) {
+    @apply mb-[30px];
+  }
+  .stepper__shape {
+    @apply w-[50px] h-[50px] rounded-full overflow-hidden bg-slate-500 flex items-center justify-center border-[4px] border-slate-300 relative z-10;
+  }
+  .stepper__number {
+    @apply text-white font-medium;
+  }
+  .stepper__icon {
+    @apply w-[16px] hidden;
+  }
+  .stepper--completed .stepper__number {
+    @apply hidden;
+  }
+  .stepper--completed .stepper__icon {
+    @apply block;
+  }
+  .stepper__line {
+    @apply bg-slate-400 w-[1px] h-full absolute left-[25px];
+  }
+
+  .animated-content {
+    opacity: 0;
+    transform: translateX(-100%); /* Move 100% to the left */
+    transition: transform 0.5s ease-in-out; /* Animation properties */
+  }
+
+  .relative {
+    position: relative;
+}

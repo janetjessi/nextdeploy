@@ -1,0 +1,79 @@
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+
+  }
+  
+  .lightbox-content {
+    position: relative;  
+  }
+
+  .video {
+    width: 1016px;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 24px;
+  }
+  
+  .close-button:hover {
+    color: #ccc;
+  }
+
+
+  .close_button {
+
+    position: absolute;
+    /* top: 10px;
+    right: 10px; */
+    cursor: pointer;
+    color: #fff;
+    /* font-size: 24px; */
+    
+    top: -4px;
+    right: -2px;
+    width: 32px;
+    height: 30px;
+    /* position: relative; */
+    border-radius: 50%;
+    background-color: #FFF;
+    opacity: 0.8;
+    transition: 0.3s ease-out;
+    z-index: 2000;
+   
+  }
+
+  .close_button:before,
+  .close_button:after {
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 2px;
+    background-color: #36658d;
+    left: 50%;
+    top: 50%;
+  }
+  .close_button:after {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  .close_button:before {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+  .close_button:hover,
+  .close_button:focus {
+    transform: scale(1.15);
+    opacity: 1;
+  }

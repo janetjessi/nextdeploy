@@ -1,0 +1,23 @@
+
+.destination_home_banner{
+    /* background: #708090; */
+    padding:30px;
+    position:relative;
+    /* height:100vh; */
+  }
+
+  .destination_width_home{
+    /* display: flex; */
+    width:1136px;
+    margin: 0 auto;
+  }
+
+  .selection_text{
+    margin-top: 23px;
+    font-size: 26px;
+    font-weight: 400;
+  }
+
+  .sub_title{
+    padding-bottom: 27px;
+  }

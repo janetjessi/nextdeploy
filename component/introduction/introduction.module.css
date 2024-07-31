@@ -1,0 +1,201 @@
+.grid{
+    display: grid;
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+    grid-auto-flow: column;
+    gap: 1rem/* 16px */;
+
+}
+
+.rowSpan{
+    grid-row: span 3 / span 3;
+}
+
+.calSpan{
+    grid-column: span 2 / span 2;
+}
+
+.gridRowCol{
+    grid-row: span 2 / span 2;
+    grid-column: span 2 / span 2;
+    margin-top: -58px;
+}
+
+.header{
+    font-size: 36px;
+    margin-left: 73px;
+}
+
+.buttonBlue{
+    --tw-bg-opacity: 1;
+    background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+    --tw-bg-opacity: 1;
+    background-color: rgb(29 78 216 / var(--tw-bg-opacity));
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+    font-weight: 700;
+    padding-top: 0.5rem/* 8px */;
+    padding-bottom: 0.5rem/* 8px */;
+    padding-left: 1rem/* 16px */;
+    padding-right: 1rem/* 16px */;
+    border-radius: 9999px;
+    margin-top: 35px;
+}
+
+.description{
+    margin-left: 60px;
+    margin-top: 10px;
+}
+
+
+.fastlane_home_banner{
+    /* background: #708090; */
+    padding:30px;
+    position:relative;
+    /* height:100vh; */
+  }
+  
+  .fastlane_banner_content.id_banner h2 {
+    line-height: 62px;
+  }
+  .fastlane_banner_content span{
+   padding-top:30px;
+    font-weight: 700;
+    display: flex;
+  }
+  .fastlane_width_home{
+    display: flex;
+    width:1136px;
+    margin: 0 auto;
+  }
+  .homepage_left_banner{
+    padding-top:32px;
+    flex-basis: 60%;
+  }
+  .flex_idp_logo_banner{
+    display: flex ;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 80px;
+  }
+  .homepage_right_banner{
+    flex-basis: 40%;
+  }
+  .fastlane_logo{
+    width: 120px;
+  }
+  .fastlane_banner_content h2{
+    color:#000;
+    font-size: 65px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 56px; /* 107.692% */
+    letter-spacing: -1.04px;
+  }
+  
+  .border {
+    border-right: 1px solid #fff;
+    height:22px;
+  }
+  .fastlane_banner_content p{
+    color:#000;
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px;
+    padding-top: 20px; 
+  }
+  .homebanner_getstarted{
+    display: flex;
+    padding-top: 24px;
+  }
+  .homebanner_getstarted button {
+    border-radius: 24px;
+    background: #4B4EFC;
+    padding: 10px 24px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    min-height: 48px;
+    box-sizing: border-box;
+    justify-content: center;
+    font-size: 35px;
+  }
+  .homebanner_getstarted a:hover{
+    background-color:#15803D;
+  }
+  .homebanner_getstarted img{
+    width:20px;
+    height: 20px;
+  }
+  /* .homepage_lady{
+    position: absolute;
+    right:0;
+    top:0;
+  } */
+  .homepage_lady img{
+    width:100%;
+  }
+  @media(max-width:768px){
+      .homepage_left_banner{
+          flex-basis: 100%;
+      }
+      .fastlane_width_home{
+          display: flex;
+          width: 100%;
+          margin: 0 auto;
+          flex-wrap: wrap;    
+          align-items: center;
+          justify-content: center;
+      }
+      .homepage_right_banner {
+          flex-basis: 100%;
+      }
+      .fastlane_banner_content{
+          text-align: center;
+      }
+      .fastlane_banner_content span{
+          justify-content: center;
+      }
+      .homebanner_getstarted{
+          justify-content: center;
+      }
+      .homepage_lady img{
+          padding-top: 30px;
+      }
+  }
+  @media(max-width:480px){
+      .homepage_lady{
+          display: none;
+      }
+      .fastlane_width_home{
+          width: 100%;
+          flex-wrap: wrap;
+      }
+      .homepage_left_banner, .homepage_right_banner{
+          flex-basis: 100%;
+          text-align: center;
+      }
+      .fastlane_banner_content h2{
+          font-size: 30px;
+          line-height: 40px;
+      }
+      .homebanner_getstarted {
+          display: flex;
+          padding-top: 24px;
+          flex-wrap: wrap;
+          width: calc(100% - 20px);
+          position: absolute;
+          bottom: 20px;
+          left: 0;
+          right: 0;
+          margin: 10px;
+      }
+      .homebanner_getstarted a{
+          width: 100%;
+      }
+    }
+
+

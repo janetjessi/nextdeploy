@@ -1,0 +1,22 @@
+.card {
+    background-color: #fff;
+    min-width: 100%;
+    min-height: 150px;
+    display: flex;
+    /* overflow-x: auto; */
+    overflow-x: scroll;
+    flex-direction: row;
+    scroll-snap-type: x var(--tw-scroll-snap-strictness);
+    --tw-scroll-snap-strictness: mandatory;
+  }
+
+  
+.card--content {
+    background-color: #e74c3c;
+    min-width: 200px;
+    margin: 5px;
+  }
+
+  .card::-webkit-scrollbar {
+    display: none;
+  }

@@ -1,0 +1,103 @@
+.container {
+  position: relative;
+  width: 100%; /* Or specify a fixed width */
+  height: 50px; /* Or adjust height as needed */
+ /*  background-color: #f0f0f0; Just for visualization */
+}
+
+.left-button {
+  position: absolute;
+  /* left: 200px; */
+  left: 88px;
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Center vertically */
+  display: flex;
+  margin-top: 5px;
+
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  /* background-color: #04AA6D; */
+  border: none;
+  border-radius: 15px;
+  color: black;
+}
+
+.right-button {
+  position: absolute;
+  right: 200px; /* Adjust as needed */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Center vertically */
+  display: flex;
+  margin-top: 5px;
+
+  /* display: inline-block; */
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  /* background-color: #04AA6D; */
+  border: none;
+  border-radius: 15px;
+  color: black;
+}
+
+/* .svg{
+  margin-top: 13px;
+} */
+
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #04AA6D;
+  border: none;
+  border-radius: 15px;
+  /* box-shadow: 0 9px #999; */
+  /* width: -webkit-fill-available; */
+
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 10px;
+  width: 198px;
+}
+
+.right-button:hover {background-color: grey}
+
+.left-button:hover {background-color: grey}
+
+.home_banner{
+  /* background: #708090; */
+  /* padding:30px; */
+  position:relative;
+  /* height:100vh; */
+}
+
+.width_home{
+  /* display: flex; */
+  max-width:1136px;
+  margin: 0 auto;
+}
+
+.width_home h2{
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.svg{
+  margin-top: 0px;
+}
+
+

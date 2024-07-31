@@ -1,0 +1,207 @@
+/* body {
+    background-color: black;
+  } */
+  
+  .container {
+    width: 800px !important;
+    padding: 0 !important;
+    margin-right: auto;
+    margin-left: auto;
+  
+    @media screen and (min-width: 992px) and (max-width: 1439px) {
+      max-width: 1279px !important;
+      padding: 0 !important;
+      margin: 0 80px !important;
+      width: auto !important;
+    }
+  
+    @media screen and (max-width: 991px) {
+      max-width: 959px !important;
+      margin: 0 16px !important;
+      padding: 0 !important;
+      width: auto !important;
+    }
+  }
+  
+  .gradient-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 204px;
+    padding: 30px;
+    @media screen and (max-width: 991px) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .container-title {
+    text-align: center;
+    padding: 0 !important;
+    margin-bottom: 40px;
+    font-size: 40px;
+    color: #fff;
+    font-weight: 600;
+    line-height: 60px;
+    
+  }
+  
+  .card {
+    max-width: 550px;
+    border: 0;
+    width: 100%;
+    margin-inline: auto;
+  }
+  
+  .container-card {
+    position: relative;
+    border: 2px solid transparent;
+    /* background: linear-gradient(71deg, #080509, #1a171c, #080509); */
+    background-clip: padding-box;
+    border-radius: 45px;
+    padding: 14px;
+    height: 400px;
+    /* img {
+      margin-bottom: 32px;
+    } */
+  }
+  
+  .bg-green-box,
+  .bg-white-box,
+  .bg-yellow-box,
+  .bg-blue-box {
+    position: relative;
+  }
+  
+  .bg-green-box::after,
+  .bg-white-box::after,
+  .bg-yellow-box::after,
+  .bg-blue-box::after {
+    position: absolute;
+    top: -1px;
+    bottom: -1px;
+    left: -1px;
+    right: -1px;
+    content: "";
+    z-index: -1;
+    /* border-radius: 45px; */
+  }
+  
+  .bg-green-box::after {
+    background: linear-gradient(71deg, #0d1212, #3da077, #0d1212);
+  }
+  
+  .bg-white-box::after {
+    background: linear-gradient(71deg, #121013, #b0afb0, #121013);
+  }
+  
+  .bg-yellow-box::after {
+    background: linear-gradient(71deg, #110e0e, #afa220, #110e0e);
+  }
+  
+  .bg-blue-box::after {
+    /* background: linear-gradient(71deg, #0c0a0e, #5f6fad, #0c0a0e); */
+    background: indigo;
+  }
+  
+  .card-title {
+    font-weight: 600;
+    color: white;
+    letter-spacing: -0.02em;
+    line-height: 30px;
+    font-style: normal;
+    font-size: 20px;
+    padding-bottom: 8px;
+    margin-left: 18px;
+  }
+  
+  .card-description {
+    font-weight: 600;
+    line-height: 32px;
+    color: hsla(0, 0%, 100%, 0.5);
+    font-size: 16px;
+    max-width: 470px;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 15px;
+    /* box-shadow: 0 9px #999; */
+    /* width: -webkit-fill-available; */
+
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 10px;
+    width: 198px;
+  }
+  
+  .button:hover {background-color: #3e8e41}
+  
+  .button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+
+  .card1 {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 200px;
+    margin: auto;
+    /* text-align: center; */
+    font-family: arial;
+    height: 380px;
+  }
+  
+  .title {
+    /* color: grey; */
+    font-size: 18px;
+    /* padding: 4px; */
+    font-weight: 700;
+    padding: 10px;
+  }
+
+  .button1 {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    /* width: 100%; */
+    width: 200px;
+    font-size: 18px;
+
+    position: absolute;
+    bottom: 0;
+  }
+
+  .button1:hover {background-color: grey}
+  
+  .a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+  }
+  
+  .img{
+    padding: 10px;
+  }
+
+  .h1{
+    padding: 7px;
+    font-weight: 300;
+  }
+
+  .p{
+    padding: 7px;
+  }
