@@ -1,0 +1,190 @@
+stages:
+  - build
+  - plan
+  - deploy
+  - invalidate
+
+default:
+  image: registry.gitlab.com/idp-education/shared/artifacts/devsecops/docker-images/dockerhub-images/node:18.17.0
+  tags:
+    - studentplacement-dev-ap-southeast-1
+    # - sp-nextjs-dev-ap-southeast-1
+    # - gitlab-org
+  # cache:
+  #   key: ${CI_COMMIT_REF_SLUG}
+  #   paths:
+      # - node_modules/
+  #     - .next/cache/
+
+# services:
+# - name: registry.gitlab.com/idp-education/shared/artifacts/devsecops/docker-images/dockerhub-images/docker:19.03.12-dind
+#   alias: docker
+
+#######
+
+.build_env:   #Used in Build Job
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "pipeline"
+      when: never 
+    - if: $CI_COMMIT_BRANCH == $BRANCH
+      when: always
+  environment:
+    name: $GITLAB_ENV
+
+.deploy_env:  #Used in Deploy & Invalidate Jobs
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "pipeline"
+      when: never 
+    - if: $CI_COMMIT_BRANCH == $BRANCH
+      when: always
+  environment:
+    name: $GITLAB_ENV
+
+.build_job: &build_template
+  stage: build
+  extends: .build_env
+  before_script:
+    - apt-get update
+    - apt install zip
+    - npm install 
+  script:
+    # - ls
+    - npm run build:dev
+    - npx open-next@latest build 
+  artifacts:
+    paths:
+      - dist/
+
+.diff_job: &diff_template
+  stage: plan
+  extends: .build_env
+  before_script:
+    - apt-get update
+    - apt install zip
+    - cd cdk
+  script:
+    # - ls
+    - npm install
+    - npm run cdk synth
+    - npm run cdk diff
+  artifacts:
+    paths:
+      - dist/     
+
+.deploy_job: &deploy_template
+  stage: deploy
+  extends: .deploy_env
+  before_script:
+    - apt-get update
+    - apt install zip
+  script:
+    # - ls  
+    - cd cdk
+    - npm install 
+    - npm run cdk deploy --all   
+  artifacts:
+    paths:
+      - dist/
+
+.cloudfront_invalidation_job: &invalidation_template    #Invalidate job Template
+  stage: invalidate
+  extends: .deploy_env
+  image: registry.gitlab.com/idp-education/shared/artifacts/devsecops/docker-images/dockerhub-images/aws-cloudfront:invalidate
+  before_script:
+    - echo -e "\e[43m Setting up the AWS environment. \e[0m"
+    - aws configure set aws_access_key_id ${AWS_ACCESS_KEY_ID}
+    - aws configure set aws_secret_access_key ${AWS_SECRET_ACCESS_KEY}
+    - aws configure set default.region ${AWS_DEFAULT_REGION}
+  script:
+    - echo -e "\e[42m Invalidating the website domain. \e[0m"
+    - aws cloudfront create-invalidation --distribution-id ${AWS_CLOUDFRONT_ID} --paths "/*"
+    - DEPLOY_EXIT_CODE=$?
+    - |
+      if [ $DEPLOY_EXIT_CODE -eq 0 ]; then
+        echo -e "\e[42m Successfully Invalidated CloudFront Cache in $GITLAB_ENV Environment \e[0m"
+      else
+        echo -e "\e[41m Failed to Invalidate CloudFront Cache in $GITLAB_ENV Environment. \e[0m"
+        echo -e "\e[41m Exit Code \e[31m\e[47m\e[1m $DEPLOY_EXIT_CODE \e[0m"
+        exit $DEPLOY_EXIT_CODE
+      fi
+
+################# Develop Pipeline  ###############
+
+.dev_vars: &dev_vars
+  variables:
+    DEPLOY_ENV: dev #AWS environment used in npx sst command
+    BRANCH: develop #Gitlab Branch
+    GITLAB_ENV: development #Gitlab Pipeline Environment
+
+Build_Dev:
+  <<: *build_template
+  <<: *dev_vars
+
+Plan_Dev:
+  needs: ["Build_Dev"]
+  <<: *diff_template
+  <<: *dev_vars
+
+Deploy_Dev:
+  needs: ["Plan_Dev"]
+  <<: *deploy_template
+  <<: *dev_vars
+
+CloudFront_Invalidate_Dev:
+  needs: ["Deploy_Dev"]
+  <<: *dev_vars
+  <<: *invalidation_template
+
+
+# ################# Staging Pipeline  ###############
+
+# .stage_vars: &stage_vars
+#   variables:
+#     DEPLOY_ENV: stg #AWS environment used in npx sst command
+#     BRANCH: staging  #Gitlab Branch
+#     GITLAB_ENV: staging #Gitlab Pipeline Environment
+
+# Deploy_Staging:
+#   <<: *build_template
+#   <<: *stage_vars
+
+# CloudFront_Invalidate_Stg:
+#   needs: ["Deploy_Staging"]
+#   <<: *stage_vars
+#   <<: *invalidation_template
+
+
+# ################# UAT Pipeline  ###############
+
+# .uat_vars: &uat_vars
+#   variables:
+#     DEPLOY_ENV: uat #AWS environment used in npx sst command
+#     BRANCH: uat  #Gitlab Branch
+#     GITLAB_ENV: uat #Gitlab Pipeline Environment
+
+# Deploy_Uat:
+#   <<: *build_template
+#   <<: *uat_vars
+
+# CloudFront_Invalidate_Uat:
+#   needs: ["Deploy_Uat"]
+#   <<: *uat_vars
+#   <<: *invalidation_template
+
+
+# ################# Production Pipeline  ###############
+
+# .prod_vars: &prod_vars
+#   variables:
+#     DEPLOY_ENV: prod #AWS environment used in npx sst command
+#     BRANCH: prod  #Gitlab Branch
+#     GITLAB_ENV: production #Gitlab Pipeline Environment
+
+# Deploy_Prod:
+#   <<: *build_template
+#   <<: *prod_vars
+
+# CloudFront_Invalidate_Prod:
+#   needs: ["Deploy_Prod"]
+#   <<: *prod_vars
+#   <<: *invalidation_template
